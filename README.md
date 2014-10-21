@@ -13,3 +13,5 @@ Copyright Docker Inc Education Team 2014 <education@docker.com>
 
 
 trivial change
+
+This is a change made by Pat McShane
