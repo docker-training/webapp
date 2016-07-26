@@ -1,14 +1,15 @@
-from app import app
-
 import os
-import unittest
 
-class AppTestCase(unittest.TestCase):
+from flask import Flask
 
-   def test_root_text(self):
-        tester = app.test_client(self)
-        response = tester.get('/')
-        assert 'Hello world!' in response.data
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    provider = str(os.environ.get('PROVIDER', 'world ecs'))
+    return 'Hello '+provider+'!'
 
 if __name__ == '__main__':
-    unittest.main()
+    # Bind to PORT if defined, otherwise default to 5000.
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
