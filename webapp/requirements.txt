@@ -1,5 +1,39 @@
-Flask
-Jinja2
-Werkzeug
-distribute
-wsgiref
+-------Flask
+==Step 1
+//Debian, Ubuntu
+$ sudo apt-get install python-virtualenv
+//CentOS, Fedora
+$ sudo yum install python-virtualenv
+//Arch
+$ sudo pacman -S python-virtualenv
+==Step 2
+mkdir myproject
+cd myproject
+python3 -m venv venv
+==Step 3
+$ pip install Flask
+
+--------Jinja2
+==Step
+Installing the development version
+git clone git://github.com/pallets/jinja.git
+cd jinja2
+ln -s jinja2 /usr/lib/python2.X/site-packages
+
+--------Werkzeug
+linux
+# Debian, Ubuntu
+sudo apt-get install python-virtualenv
+# CentOS, Fedora
+sudo yum install python-virtualenv
+# Arch
+sudo pacman -S python-virtualenv
+Mac OS
+sudo python2 Downloads/get-pip.py
+sudo python2 -m pip install virtualenv
+Windows
+\Python27\python.exe Downloads\get-pip.py
+\Python27\python.exe -m pip install virtualenv
+
+--------distributed
+--------wsgiref
