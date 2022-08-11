@@ -1,0 +1,26 @@
+language: python
+
+sudo: required
+
+services:
+- docker
+env:
+  global:
+  - DOCKER_REPO=ml-app
+  - EB_REGION="us-east-1"
+  - secure: travisEncryptedAWS_ACCOUNT_ID
+  - secure: travisEncryptedAWS_ACCESS_KEY_ID
+  - secure: travisEncryptedAWS_SECRET_ACCESS_KEY
+
+before_install:
+- pip install awscli
+- export PATH=$PATH:$HOME/.local/bin
+
+script:
+- docker build -t ml-app .
+
+deploy:
+  provider: script
+  script: bash docker_push.sh
+  on:
+    branch: master
