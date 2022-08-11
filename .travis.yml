@@ -17,7 +17,7 @@ before_install:
 - export PATH=$PATH:$HOME/.local/bin
 
 script:
-- docker build -t $DOCEKR_REPO .
+- docker build -t $DOCKER_REPO .
 
 deploy:
   provider: script
