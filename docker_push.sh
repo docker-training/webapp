@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # Declare variable 
-AWS_ACCOUNT_ID=140124015873
+AWS_ACCOUNT_ID=436350383194
 EB_REGION=us-east-1
 DOCKER_REPO=ml-app
 
@@ -38,7 +38,7 @@ aws configure set default.region ${EB_REGION}
 # I'm speculating it obtains temporary access token
 # it expects aws access key and secret set
 # in environmental vars
-$(aws ecr get-login --no-include-email)
+eval $(aws ecr get-login --region us-east-1)
 
 # update latest version
 docker tag ${SOURCE_IMAGE} ${TARGET_IMAGE_LATEST}

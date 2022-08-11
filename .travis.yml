@@ -8,16 +8,16 @@ env:
   global:
   - DOCKER_REPO=ml-app
   - EB_REGION="us-east-1"
-  - secure: travisEncryptedAWS_ACCOUNT_ID
-  - secure: travisEncryptedAWS_ACCESS_KEY_ID
-  - secure: travisEncryptedAWS_SECRET_ACCESS_KEY
+  - AWS_ACCOUNT_ID=436350383194
+  - AWS_ACCESS_KEY_ID=AKIASBIAKZUATOTU2SAW
+  - AWS_SECRET_ACCESS_KEY=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
 
 before_install:
 - pip install awscli
 - export PATH=$PATH:$HOME/.local/bin
 
 script:
-- docker build -t ml-app .
+- docker build -t $DOCEKR_REPO .
 
 deploy:
   provider: script
